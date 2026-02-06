@@ -1,59 +1,64 @@
-﻿// script.js
-
-// Get all the sections
-var sections = document.querySelectorAll(".section");
-
-// This hides all sections
-function hideSections() {
-  for (var i = 0; i < sections.length; i++) {
-    sections[i].style.display = "none";
-  }
-}
-
-// This shows one section
-function showSection(id) {
-  hideSections();
-  var section = document.getElementById(id);
-  if (section) {
-    section.style.display = "block";
-  }
-}
-
-// Hide everything when the page loads
-hideSections();
-
-
-// FUN FACTS
-var facts = [
-  "I broke my toe before.",
-  "My motto is work hard, play hard.",
-  "I visited Nigeria and Morocco."
+﻿var facts = [
+  'I built a small robot with my team.',
+  'I like solving number puzzles.',
+  'I can draw cars and shoes.',
+  'I enjoy learning new code words.'
 ];
 
-var factNumber = 0;
+var factIndex = 0;
 
-// Show the next fun fact
-function nextFact() {
-  factNumber = factNumber + 1;
-
-  if (factNumber >= facts.length) {
-    factNumber = 0;
+function hideSections() {
+  var sections = document.getElementsByClassName('section');
+  var i = 0;
+  while (i < sections.length) {
+    sections[i].style.display = 'none';
+    i = i + 1;
   }
-
-  document.getElementById("fact").innerText = facts[factNumber];
 }
 
+function showSection(id) {
+  hideSections();
+  var el = document.getElementById(id);
+  if (el) {
+    el.style.display = 'block';
+  }
+}
 
-// QUESTIONS
+function nextFact() {
+  factIndex = factIndex + 1;
+  if (factIndex >= facts.length) {
+    factIndex = 0;
+  }
+  var factEl = document.getElementById('fact');
+  factEl.innerHTML = facts[factIndex];
+}
 
-// Question 1 answer
 function answerQ1(answer) {
-  document.getElementById("q1Feedback").innerText =
-    "Thanks for your answer: " + answer;
+  var text = 'Thanks for answering.';
+  if (answer === 'science') {
+    text = 'Science is a great pick.';
+  }
+  if (answer === 'math') {
+    text = 'Math is a strong choice.';
+  }
+  if (answer === 'both') {
+    text = 'Both is a smart answer.';
+  }
+  document.getElementById('q1-feedback').innerHTML = text;
 }
 
-// Question 2 answer
 function answerQ2(answer) {
-  document.getElementById("q2Feedback").innerText =
-    "Thanks for participating: " + answer;
+  var text = 'Thanks for sharing.';
+  if (answer === 'yes') {
+    text = 'Travel can teach a lot.';
+  }
+  if (answer === 'no') {
+    text = 'Maybe someday you will.';
+  }
+  document.getElementById('q2-feedback').innerHTML = text;
 }
+
+window.onload = function () {
+  hideSections();
+  document.getElementById('fact').innerHTML = facts[0];
+};

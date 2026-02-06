@@ -1,87 +1,94 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- Page title -->
-  <title>Francis Portfolio</title>
-
-  <!-- Connects the style file -->
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francis' Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div id="page" class="page">
+    <h1>Francis' Portfolio</h1>
+    <h2>Grade 9 student from Canada</h2>
 
-  <!-- TOP PART -->
-  <h1>Francis' Portfolio</h1>
-  <p>Grade 9 student from Canada</p>
+    <svg width="140" height="160" viewBox="0 0 140 160" aria-label="Cartoon of a boy" role="img">
+      <circle cx="70" cy="60" r="45" fill="#4a2f1b" stroke="#0b1f3a" stroke-width="2" />
+      <rect x="25" y="20" width="90" height="22" fill="#1b1b1b" />
+      <circle cx="52" cy="60" r="5" fill="#0b1f3a" />
+      <circle cx="88" cy="60" r="5" fill="#0b1f3a" />
+      <path d="M50 80 Q70 95 90 80" stroke="#0b1f3a" stroke-width="3" fill="none" />
+      <rect x="40" y="105" width="60" height="45" fill="#2e7d32" stroke="#0b1f3a" stroke-width="2" />
+    </svg>
 
-  <!-- Simple cartoon picture using SVG -->
-  <svg width="200" height="200">
-    <!-- Head -->
-    <circle cx="100" cy="110" r="70" fill="#8B5E3C"></circle>
+    <p>Click a button to see information:</p>
 
-    <!-- Hair -->
-    <rect x="40" y="40" width="120" height="30" fill="#1b1b1b"></rect>
+    <div class="buttons">
+      <button onclick="showSection('about')">About</button>
+      <button onclick="showSection('interests')">Interests</button>
+      <button onclick="showSection('skills')">Skills</button>
+      <button onclick="showSection('favorites')">Favorites</button>
+      <button onclick="showSection('funfacts')">Fun Facts</button>
+      <button onclick="showSection('questions')">Questions</button>
+    </div>
 
-    <!-- Eyes -->
-    <circle cx="75" cy="110" r="7" fill="#000"></circle>
-    <circle cx="125" cy="110" r="7" fill="#000"></circle>
+    <div id="about" class="section">
+      <h3>About</h3>
+      <p>Name: Francis</p>
+      <p>Grade: 9</p>
+      <p>Country: Canada</p>
+      <p>Languages: English, French</p>
+      <p>Team: Celtics robotics team</p>
+    </div>
 
-    <!-- Smile -->
-    <path d="M70 145 Q100 165 130 145" stroke="#000" stroke-width="5" fill="none"></path>
-  </svg>
+    <div id="interests" class="section">
+      <h3>Interests</h3>
+      <p>Science</p>
+      <p>Math</p>
+      <p>Technology</p>
+      <p>Gym</p>
+    </div>
 
-  <!-- BUTTONS -->
-  <p>Click a button to see information:</p>
+    <div id="skills" class="section">
+      <h3>Skills</h3>
+      <p>HTML and CSS basics</p>
+      <p>Java and JavaScript basics</p>
+      <p>Python basics</p>
+      <p>Drawing</p>
+      <p>Sports</p>
+    </div>
 
-  <button onclick="showSection('about')">About</button>
-  <button onclick="showSection('interests')">Interests</button>
-  <button onclick="showSection('skills')">Skills</button>
-  <button onclick="showSection('favorites')">Favorites</button>
-  <button onclick="showSection('funfacts')">Fun Facts</button>
+    <div id="favorites" class="section">
+      <h3>Favorites</h3>
+      <p>Rich Dad Poor Dad</p>
+      <p>Dexter</p>
+      <p>Drake</p>
+      <p>Better Place</p>
+      <p>Popeye's chicken</p>
+      <p>Gaming</p>
+    </div>
 
-  <!-- SECTIONS -->
-  <div id="about" class="section">
-    <h2>About Me</h2>
-    <p>My name is Francis.</p>
-    <p>I am in Grade 9.</p>
-    <p>I live in Canada.</p>
-    <p>I speak Yoruba and English.</p>
-    <p>I am in the Celtics robotics team.</p>
+    <div id="funfacts" class="section">
+      <h3>Fun Facts</h3>
+      <p id="fact"></p>
+      <button onclick="nextFact()">Next Fun Fact</button>
+    </div>
+
+    <div id="questions" class="section">
+      <h3>Questions</h3>
+
+      <p>Question 1: What subject do you think I like the most?</p>
+      <button onclick="answerQ1('science')">Science</button>
+      <button onclick="answerQ1('math')">Math</button>
+      <button onclick="answerQ1('both')">Both</button>
+      <p id="q1-feedback"></p>
+
+      <p>Question 2: Have you ever visited another country?</p>
+      <button onclick="answerQ2('yes')">Yes</button>
+      <button onclick="answerQ2('no')">No</button>
+      <p id="q2-feedback"></p>
+    </div>
   </div>
 
-  <div id="interests" class="section">
-    <h2>Interests</h2>
-    <p>I like science and math.</p>
-    <p>My electives are technology and gym.</p>
-  </div>
-
-  <div id="skills" class="section">
-    <h2>Skills</h2>
-    <p>HTML and CSS basics</p>
-    <p>Java and JavaScript basics</p>
-    <p>Python basics</p>
-    <p>Drawing</p>
-    <p>Soccer, basketball, football</p>
-  </div>
-
-  <div id="favorites" class="section">
-    <h2>Favorites</h2>
-    <p>Book: Rich Dad Poor Dad</p>
-    <p>Show: Dexter</p>
-    <p>Rapper: Drake</p>
-    <p>Song: Better Place</p>
-    <p>Food: Popeye’s chicken</p>
-    <p>Activity: Gaming</p>
-  </div>
-
-  <div id="funfacts" class="section">
-    <h2>Fun Facts</h2>
-    <p id="fact">I broke my toe before.</p>
-    <button onclick="nextFact()">Next Fun Fact</button>
-  </div>
-
-  <!-- Connects JavaScript -->
   <script src="script.js"></script>
-
 </body>
 </html>

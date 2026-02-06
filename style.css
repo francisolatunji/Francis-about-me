@@ -1,103 +1,94 @@
-﻿/* style.css */
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francis' Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="page" class="page">
+    <h1>Francis' Portfolio</h1>
+    <h2>Grade 9 student from Canada</h2>
 
-/* Main colors */
-body {
-  background-color: #f6f1e6;   /* cream */
-  color: #0b1b3a;             /* navy */
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-}
+    <svg width="140" height="160" viewBox="0 0 140 160" aria-label="Cartoon of a boy" role="img">
+      <circle cx="70" cy="60" r="45" fill="#4a2f1b" stroke="#0b1f3a" stroke-width="2" />
+      <rect x="25" y="20" width="90" height="22" fill="#1b1b1b" />
+      <circle cx="52" cy="60" r="5" fill="#0b1f3a" />
+      <circle cx="88" cy="60" r="5" fill="#0b1f3a" />
+      <path d="M50 80 Q70 95 90 80" stroke="#0b1f3a" stroke-width="3" fill="none" />
+      <rect x="40" y="105" width="60" height="45" fill="#2e7d32" stroke="#0b1f3a" stroke-width="2" />
+    </svg>
 
-/* Top area */
-.hero {
-  text-align: center;
-  padding: 20px;
-}
+    <p>Click a button to see information:</p>
 
-/* The picture area */
-.hero-image {
-  margin: 15px auto;
-  width: 220px;
-}
+    <div class="buttons">
+      <button onclick="showSection('about')">About</button>
+      <button onclick="showSection('interests')">Interests</button>
+      <button onclick="showSection('skills')">Skills</button>
+      <button onclick="showSection('favorites')">Favorites</button>
+      <button onclick="showSection('funfacts')">Fun Facts</button>
+      <button onclick="showSection('questions')">Questions</button>
+    </div>
 
-/* The SVG picture */
-.hero-svg {
-  width: 220px;
-  height: 220px;
-  background-color: white;
-  border: 3px solid #d4af37;  /* gold */
-  border-radius: 16px;
-  animation: float 4s ease-in-out infinite;
-}
+    <div id="about" class="section">
+      <h3>About</h3>
+      <p>Name: Francis</p>
+      <p>Grade: 9</p>
+      <p>Country: Canada</p>
+      <p>Languages: English, French</p>
+      <p>Team: Celtics robotics team</p>
+    </div>
 
-/* Buttons at the top */
-.nav-buttons {
-  margin-top: 12px;
-}
+    <div id="interests" class="section">
+      <h3>Interests</h3>
+      <p>Science</p>
+      <p>Math</p>
+      <p>Technology</p>
+      <p>Gym</p>
+    </div>
 
-/* Button style */
-.nav-btn {
-  background-color: #d4af37;  /* gold */
-  color: #0b1b3a;             /* navy */
-  border: 2px solid #1f7a4a;  /* green */
-  border-radius: 20px;
-  padding: 10px 14px;
-  margin: 6px;
-  cursor: pointer;
-}
+    <div id="skills" class="section">
+      <h3>Skills</h3>
+      <p>HTML and CSS basics</p>
+      <p>Java and JavaScript basics</p>
+      <p>Python basics</p>
+      <p>Drawing</p>
+      <p>Sports</p>
+    </div>
 
-/* Small buttons */
-.nav-btn.small {
-  padding: 8px 12px;
-}
+    <div id="favorites" class="section">
+      <h3>Favorites</h3>
+      <p>Rich Dad Poor Dad</p>
+      <p>Dexter</p>
+      <p>Drake</p>
+      <p>Better Place</p>
+      <p>Popeye's chicken</p>
+      <p>Gaming</p>
+    </div>
 
-/* Button hover */
-.nav-btn:hover {
-  opacity: 0.9;
-}
+    <div id="funfacts" class="section">
+      <h3>Fun Facts</h3>
+      <p id="fact"></p>
+      <button onclick="nextFact()">Next Fun Fact</button>
+    </div>
 
-/* Main content area */
-.sections {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 10px 16px 40px;
-}
+    <div id="questions" class="section">
+      <h3>Questions</h3>
 
-/* Each section card (hidden until JS shows it) */
-.card {
-  display: none;
-  background-color: white;
-  border: 2px solid #d4af37;  /* gold */
-  border-radius: 14px;
-  padding: 16px;
-  margin: 16px 0;
-}
+      <p>Question 1: What subject do you think I like the most?</p>
+      <button onclick="answerQ1('science')">Science</button>
+      <button onclick="answerQ1('math')">Math</button>
+      <button onclick="answerQ1('both')">Both</button>
+      <p id="q1-feedback"></p>
 
-/* Show the section when it has class "active" */
-.card.active {
-  display: block;
-}
+      <p>Question 2: Have you ever visited another country?</p>
+      <button onclick="answerQ2('yes')">Yes</button>
+      <button onclick="answerQ2('no')">No</button>
+      <p id="q2-feedback"></p>
+    </div>
+  </div>
 
-/* Fun fact box */
-.fact-card {
-  background-color: #e9f2ea;
-  border: 2px solid #1f7a4a;  /* green */
-  border-radius: 10px;
-  padding: 12px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* Feedback text for questions */
-.feedback {
-  margin-top: 6px;
-  color: #1f7a4a;  /* green */
-}
-
-/* Simple floating animation for the picture */
-@keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
-}
+  <script src="script.js"></script>
+</body>
+</html>
