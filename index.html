@@ -1,122 +1,87 @@
-﻿<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html>
 <head>
-  <!-- Basic page settings -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Page title -->
   <title>Francis Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Connects the style file -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Hero area -->
-  <header id="home" class="hero">
-    <h1>Francis Portfolio</h1>
-    <p>Grade 9 student from Canada</p>
 
-    <!-- Inline SVG hero image -->
-    <div class="hero-image">
-      <svg class="hero-svg" viewBox="0 0 220 220" aria-label="Smiling boy">
-        <circle cx="110" cy="110" r="80" fill="#8B5E3C"></circle>
-        <rect x="60" y="48" width="100" height="24" rx="10" fill="#1b1b1b"></rect>
-        <circle cx="85" cy="100" r="9" fill="#1b1b1b"></circle>
-        <circle cx="135" cy="100" r="9" fill="#1b1b1b"></circle>
-        <path d="M80 140 Q110 160 140 140" stroke="#1b1b1b" stroke-width="6" fill="none"></path>
-      </svg>
-    </div>
+  <!-- TOP PART -->
+  <h1>Francis' Portfolio</h1>
+  <p>Grade 9 student from Canada</p>
 
-    <!-- Navigation buttons -->
-    <nav class="nav-buttons">
-      <button class="nav-btn" data-target="home">Home</button>
-      <button class="nav-btn" data-target="about">About</button>
-      <button class="nav-btn" data-target="interests">Interests</button>
-      <button class="nav-btn" data-target="achievements">Achievements</button>
-      <button class="nav-btn" data-target="skills">Skills</button>
-      <button class="nav-btn" data-target="goals">Goals</button>
-      <button class="nav-btn" data-target="favorites">Favorites</button>
-      <button class="nav-btn" data-target="funfacts">Fun Facts</button>
-      <button class="nav-btn" data-target="questions">Questions</button>
-    </nav>
-  </header>
+  <!-- Simple cartoon picture using SVG -->
+  <svg width="200" height="200">
+    <!-- Head -->
+    <circle cx="100" cy="110" r="70" fill="#8B5E3C"></circle>
 
-  <!-- Sections -->
-  <main class="sections">
-    <section id="about" class="card">
-      <h2>About</h2>
-      <p>Francis</p>
-      <p>Grade 9</p>
-      <p>From Canada</p>
-      <p>Speaks Yoruba and English</p>
-      <p>I am in the Celtics robotics team.</p>
-    </section>
+    <!-- Hair -->
+    <rect x="40" y="40" width="120" height="30" fill="#1b1b1b"></rect>
 
-    <section id="interests" class="card">
-      <h2>Interests</h2>
-      <p>Favorite subjects: science and math</p>
-      <p>Electives: technology and gym</p>
-      <p>Personal interests: hobbies, sports, music, activities, passions</p>
-    </section>
+    <!-- Eyes -->
+    <circle cx="75" cy="110" r="7" fill="#000"></circle>
+    <circle cx="125" cy="110" r="7" fill="#000"></circle>
 
-    <section id="achievements" class="card">
-      <h2>Achievements</h2>
-      <p>Honor roll</p>
-    </section>
+    <!-- Smile -->
+    <path d="M70 145 Q100 165 130 145" stroke="#000" stroke-width="5" fill="none"></path>
+  </svg>
 
-    <section id="skills" class="card">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML/CSS foundations</li>
-        <li>Java/JavaScript foundations</li>
-        <li>Python foundations</li>
-        <li>Drawing</li>
-        <li>Sports: soccer, basketball, football</li>
-      </ul>
-    </section>
+  <!-- BUTTONS -->
+  <p>Click a button to see information:</p>
 
-    <section id="goals" class="card">
-      <h2>Goals</h2>
-      <p>This school year: 96% average or above</p>
-      <p>Future: neuroscientist or software engineer</p>
-    </section>
+  <button onclick="showSection('about')">About</button>
+  <button onclick="showSection('interests')">Interests</button>
+  <button onclick="showSection('skills')">Skills</button>
+  <button onclick="showSection('favorites')">Favorites</button>
+  <button onclick="showSection('funfacts')">Fun Facts</button>
 
-    <section id="favorites" class="card">
-      <h2>Favorites</h2>
-      <p>Book: Rich Dad Poor Dad</p>
-      <p>Show: Dexter</p>
-      <p>Rapper: Drake</p>
-      <p>Song: Better Place</p>
-      <p>Favorite food: Popeye’s chicken</p>
-      <p>Favorite activity: Gaming</p>
-    </section>
+  <!-- SECTIONS -->
+  <div id="about" class="section">
+    <h2>About Me</h2>
+    <p>My name is Francis.</p>
+    <p>I am in Grade 9.</p>
+    <p>I live in Canada.</p>
+    <p>I speak Yoruba and English.</p>
+    <p>I am in the Celtics robotics team.</p>
+  </div>
 
-    <section id="funfacts" class="card">
-      <h2>Fun Facts</h2>
-      <div class="fact-card" id="factCard">
-        I broke my toe before
-      </div>
-      <button class="nav-btn small" id="nextFact">Next Fun Fact</button>
-    </section>
+  <div id="interests" class="section">
+    <h2>Interests</h2>
+    <p>I like science and math.</p>
+    <p>My electives are technology and gym.</p>
+  </div>
 
-    <section id="questions" class="card">
-      <h2>Questions</h2>
+  <div id="skills" class="section">
+    <h2>Skills</h2>
+    <p>HTML and CSS basics</p>
+    <p>Java and JavaScript basics</p>
+    <p>Python basics</p>
+    <p>Drawing</p>
+    <p>Soccer, basketball, football</p>
+  </div>
 
-      <div class="question">
-        <p>What subject do you think I like the most?</p>
-        <button class="nav-btn small q1" data-answer="Science">Science</button>
-        <button class="nav-btn small q1" data-answer="Math">Math</button>
-        <button class="nav-btn small q1" data-answer="Both">Both</button>
-        <p class="feedback" id="q1Feedback"></p>
-      </div>
+  <div id="favorites" class="section">
+    <h2>Favorites</h2>
+    <p>Book: Rich Dad Poor Dad</p>
+    <p>Show: Dexter</p>
+    <p>Rapper: Drake</p>
+    <p>Song: Better Place</p>
+    <p>Food: Popeye’s chicken</p>
+    <p>Activity: Gaming</p>
+  </div>
 
-      <div class="question">
-        <p>Have you ever visited another country?</p>
-        <button class="nav-btn small q2" data-answer="Yes">Yes</button>
-        <button class="nav-btn small q2" data-answer="No">No</button>
-        <p class="feedback" id="q2Feedback"></p>
-      </div>
-    </section>
-  </main>
+  <div id="funfacts" class="section">
+    <h2>Fun Facts</h2>
+    <p id="fact">I broke my toe before.</p>
+    <button onclick="nextFact()">Next Fun Fact</button>
+  </div>
 
+  <!-- Connects JavaScript -->
   <script src="script.js"></script>
+
 </body>
 </html>

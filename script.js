@@ -1,69 +1,59 @@
 ﻿// script.js
 
-// Get sections and buttons
-const sections = document.querySelectorAll(".card");
-const buttons = document.querySelectorAll(".nav-btn");
+// Get all the sections
+var sections = document.querySelectorAll(".section");
 
-// Hide all sections
-function hideAllSections() {
-  sections.forEach((sec) => sec.classList.remove("active"));
+// This hides all sections
+function hideSections() {
+  for (var i = 0; i < sections.length; i++) {
+    sections[i].style.display = "none";
+  }
 }
 
-// Button click behavior
-buttons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const target = btn.getAttribute("data-target");
+// This shows one section
+function showSection(id) {
+  hideSections();
+  var section = document.getElementById(id);
+  if (section) {
+    section.style.display = "block";
+  }
+}
 
-    // Home button hides all sections
-    if (target === "home") {
-      hideAllSections();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
+// Hide everything when the page loads
+hideSections();
 
-    // Show the selected section
-    hideAllSections();
-    const section = document.getElementById(target);
-    if (section) {
-      section.classList.add("active");
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-});
 
-// Hide all sections on page load
-hideAllSections();
-
-// Fun fact cycle
-const funFacts = [
-  "I broke my toe before",
-  "Motto: Work hard, play hard",
-  "I visited Nigeria and Morocco"
+// FUN FACTS
+var facts = [
+  "I broke my toe before.",
+  "My motto is work hard, play hard.",
+  "I visited Nigeria and Morocco."
 ];
-let factIndex = 0;
 
-const factCard = document.getElementById("factCard");
-const nextFact = document.getElementById("nextFact");
+var factNumber = 0;
 
-nextFact.addEventListener("click", () => {
-  factIndex = (factIndex + 1) % funFacts.length;
-  factCard.textContent = funFacts[factIndex];
-});
+// Show the next fun fact
+function nextFact() {
+  factNumber = factNumber + 1;
 
-// Question feedback
-const q1Feedback = document.getElementById("q1Feedback");
-const q2Feedback = document.getElementById("q2Feedback");
+  if (factNumber >= facts.length) {
+    factNumber = 0;
+  }
 
-document.querySelectorAll(".q1").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const answer = btn.getAttribute("data-answer");
-    q1Feedback.textContent = "Thanks. You picked " + answer + ".";
-  });
-});
+  document.getElementById("fact").innerText = facts[factNumber];
+}
 
-document.querySelectorAll(".q2").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const answer = btn.getAttribute("data-answer");
-    q2Feedback.textContent = "Thanks. You picked " + answer + ".";
-  });
-});
+
+// QUESTIONS
+
+// Question 1 answer
+function answerQ1(answer) {
+  document.getElementById("q1Feedback").innerText =
+    "Thanks for your answer: " + answer;
+}
+
+// Question 2 answer
+function answerQ2(answer) {
+  document.getElementById("q2Feedback").innerText =
+    "Thanks for participating: " + answer;
+}
